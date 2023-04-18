@@ -3,45 +3,47 @@ class Item:
     Represents an item in the shopping cart
     attributes: name, price
     """
+
     def __init__(self, name, price):
         """
         Initialize the attributes
         """
         self.name = name
         self.price = price
-    
+
     def __str__(self):
         """
         Return the name and price of the item in a human-readable format
         """
         return f'{self.name} : ${self.price:.2f}'
 
+
 class ShoppingCart:
     """
     Represents the shopping cart
     attributes: a list to store items, total price of the items
     """
+
     def __init__(self):
         """
         Initialize the attributes
         """
         self.items = []
         self.total = 0.0
-    
+
     def __str__(self):
         """
         Return the number of items in a human-readable format
         """
-        return  f'There are {len(self.items)} items in your Shoppinhg Cart.'
-    
-    def __add__ (self, other):
+        return f'There are {len(self.items)} items in your Shoppinhg Cart.'
+
+    def __add__(self, other):
         """
         Operator Overloading
-
         Overloads the "+" operator
         """
         self.total += other
-    
+
     def add_item(self, item):
         """
         Method to add an item to the shopping cart
@@ -49,18 +51,18 @@ class ShoppingCart:
         self.items.append(item)
         self.total += item.price
         print(f"Added {item.name} to the shopping cart.")
-    
+
     def remove_item(self, item):
         """
         Method to remove an item from the shopping cart
-        """        
-        if item in self.items:          
+        """
+        if item in self.items:
             self.items.remove(item)
-            self.total -= item.price  
+            self.total -= item.price
             print(f"Removed {item.name} from the shopping cart.")
         else:
             print(f"{item.name} not found in the shopping cart.")
-  
+
     def view_cart(self):
         """
         Method to view the items in the shopping cart
@@ -72,6 +74,7 @@ class ShoppingCart:
             print(f"Total: ${self.total:.2f}")
         else:
             print("No items in the shopping cart.")
+
 
 cart1 = ShoppingCart()
 cart2 = ShoppingCart()
@@ -90,7 +93,7 @@ cart1.view_cart()
 cart2.view_cart()
 
 cart1.remove_item(item2)
-cart2 + 0.0625*cart2.total
+cart2 + 0.0625*cart2.total  # add tax
 
 cart1.view_cart()
 cart2.view_cart()
